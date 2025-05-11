@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>result</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">result</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <h1>Exam Completed!</h1>
+  <h2>Your Score: {{ score }} / {{ total }} ( {{ percentage | number:'1.2-2' }} %)</h2>
+  <ion-item-group *ngFor="let activity of distinctCourseActivities; let i = index">
+    <ion-item-divider></ion-item-divider>
+    <ion-item color="primary"><ion-label>{{ (i + 1) | number:'2.0' }} {{ activity.courseActivity }} [{{ activity.wrongAns }} of {{ activity.totalAns }} wrong answer(s)]</ion-label></ion-item>    
+    <div *ngFor="let subActivity of getSubActivities(activity.courseActivity)">
+      <ion-item color="secondary"><ion-label>&nbsp;&nbsp;- {{ subActivity.subActivity }} [{{ subActivity.wrongAns }} of {{ subActivity.totalAns }} wrong answer(s)]</ion-label></ion-item>
+      <div *ngFor="let qa of subActivity.questionAnswer">
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Q: {{ qa.question }}</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;A: {{ qa.answer }}</p>
+        <hr/>
+      </div>      
+    </div>    
+  </ion-item-group>
+  <ion-button expand="full" (click)="goHome()">Back to Home</ion-button>
+</ion-content>
