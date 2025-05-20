@@ -20,4 +20,6 @@ VS Code 1.100.0 with Co-Pilot AI Plugin
 
 ## To install in your mobile phones
 
-Will share the APK soon, but you can always build APK in android studio
+Sharing APK below, but you can always build APK in android studio
+
+https://drive.google.com/file/d/1iXaPr3DwYaA_5lAGc9KgfuJTurIx0bWC/view?usp=drive_link
